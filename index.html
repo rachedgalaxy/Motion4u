@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Motion For You</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+    <a href="#" class="logo">Motion</a>
+<ul>
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="https://www.facebook.com/Motion4YDesign"target="_blank" >Work</a></li>
+    <li><a href="https://api.whatsapp.com/send?phone=213672649895&app=facebook&entry_point=page_cta"target="_blank">Contact</a></li>
+</ul>
+    </header>
+<section>
+<img src="stars.png" id="stars">
+<img src="moon.png" id="moon">
+<img src="mountains_behind.png" id="mountains_behind">
+<h2 id="text">Coming Soon</h2>
+<a href="https://www.facebook.com/Motion4YDesign/photos/?ref=page_internal"target="_blank" id="btn">let's go</a>
+<img src="mountains_front.png" id="mountains_front">
+</section>
+<div class="sec"id="sec">
+    <h2>Motion For You Design</h2>
+    <h3>Good Design, Is Good Business</h3>
+    <p>‘We’ ‘Perfectionist’ is a highly talented and dedicated team, focused on providing unique logo design absolutely from scratch. A Logo is the face of your brand which is as equally important as the success of your business and we make sure to dig the pillars of your success from depth.<br><br>Here you can indulge your skin, hair, body and mind with a special Photoshop treat! With every package you get Fast Service and Top Quality simply because a customer MUST BE HAPPY. Full satisfaction is something I can promise to you.
+
+    <h3>Reasons that make our gig unique!</h3>
+<p>
+✔Original, highly creative and conceptual design that clearly depict the brand’s message
+
+<br>✔Swift, Reliable and Premium support
+
+<br>✔Unlimited Revisions(until you are satisfied)
+
+<br>✔Team of award-winning designers
+
+    <br>✔All types of vector source files-AI EPS PDF PNG JPEG<br><h3>Nothing Beats the Experience!</h3>
+    <a href="https://www.facebook.com/Motion4YDesign"target="_blank" class="portfolio">Check out my live portfolio, Client's feedback and be assured</a>
+    </div>
+    <script>
+    let stars = document.getElementById('stars');
+    let moon = document.getElementById('moon');
+    let mountains_behind = document.getElementById('mountains_behind');
+    let text = document.getElementById('text');
+    let btn = document.getElementById('btn');
+    let mountains_front = document.getElementById('mountains_front');
+    let header = document.querySelector('header');
+        
+    window.addEventListener('scroll',function(){
+    let value = window.scrollY;
+    stars.style.left = value * 0.25 + 'px';
+    moon.style.top = value * 1.05 + 'px';
+    mountains_behind.style.top = value * -0.05 + 'px';
+    mountains_front.style.top = value * 0 + 'px';
+    text.style.marginRight = value * 4 + 'px';
+    text.style.marginTop = value * 1.5 + 'px';
+    btn.style.marginTop = value * 1.5 + 'px';
+    header.style.Top = value * 0.5 + 'px';
+    })
+    </script>
+</body>
+
+</html>
