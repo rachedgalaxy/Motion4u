@@ -61,6 +61,62 @@
     header.style.Top = value * 0.5 + 'px';
     })
     </script>
+    <script>
+let then = performance.now();
+let hue = 0;
+let x;
+let y;
+
+const growKeyframes = (hue) => [
+  { opacity: 0, '--hue': 0, '--scale': 0 },
+  { opacity: 0.75 },
+  {opacity: 0.75, '--hue': hue, '--scale': 4 },
+  {opacity: 0, '--hue': hue, '--scale': 1 },
+];
+
+const growTiming = { duration: 3000, iterations: 1, easing: 'ease-out' };
+
+const addElement = ({ x, y, hue,  elevation }) => {
+  const drop = document.body.appendChild(document.createElement('div'));
+  
+  drop.classList.add('drop');
+  
+  if (x && y) {
+    drop.style.setProperty('--x', x);
+    drop.style.setProperty('--y', y);
+    drop.style.setProperty('--elevation', elevation);
+  }
+  
+  drop.style.setProperty('--elevation', elevation);
+  
+ drop
+    .animate(growKeyframes(hue), growTiming)
+    .finished.then((e) => drop.remove());
+};
+
+const loop = () => {
+  const now = performance.now();
+  const delta = now - then;
+  const { innerHeight} = window;
+  const elevation = 1 - (y / innerHeight);
+  
+  if (delta > 50){
+    then = now;
+    hue += 1; 
+    
+    addElement({ x, y, hue, elevation });
+  }
+  
+  requestAnimationFrame(loop);
+};
+
+document.body.addEventListener('pointermove', (e) => {
+  x = e.clientX;
+  y = e.clientY;
+});
+
+loop();
+</script>
 </body>
 
 </html>
