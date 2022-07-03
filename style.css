@@ -161,3 +161,42 @@ font-size: 15vw;
 z-index: 9;
 }
 }
+@property --hue {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --scale {
+  syntax: "<number>";
+  initial-value: 0;
+  inherits: true;
+}
+
+.drop {
+  position: absolute;
+  
+  --_x: calc(var(--x) * 1px);
+  --_y: calc(var(--y) * 1px);
+  
+  --start1: 0;
+  --stop1: 360;
+  
+  --start2: 180;
+  --stop2: 250;
+  
+  --_hue:  calc(((calc(var(--hue) - var(--start1))) / calc(var(--stop1) - var(--start1))) * calc(var(--stop2) - var(--start2)) + var(--start2));
+  --_scale: calc(1 + calc(var(--scale) * var(--elevation)));
+  
+  left: var(--_x, 50vh);
+  top: var(--_y, 50vw);
+  
+  width: 50px;
+  height: 50px; 
+  border-radius: 50%;  
+  
+  filter: blur(1px);  
+  box-shadow: 2px 1px 17px 0px hsla(var(--_hue, 100) 100% 50% / 50%);
+  
+  transform: translate(-50%, -50%) scale(var(--_scale, 1));
+}
