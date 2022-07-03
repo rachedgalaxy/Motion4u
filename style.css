@@ -161,6 +161,9 @@ font-size: 15vw;
 z-index: 9;
 }
 }
+
+*/Animation nonsense
+
 @property --hue {
   syntax: "<number>";
   initial-value: 0;
